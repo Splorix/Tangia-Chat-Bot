@@ -47,17 +47,17 @@ class TangiaBot(Client):
                 
                 # If you started the dungeon yourself, do nothing
                 if YOUR_USERNAME.lower() in content:
-                    print("➡️ Detected own dungeon start – no response sent.")
+                    print("➡️ Own dungeon start detected – no response sent.")
                     return
 
                 now = time.time()
                 if now - last_response_time >= RESPONSE_COOLDOWN:
                     await message.channel.send("!join")
-                    print("✅ Sent '!join'.")
+                    print("✅ '!join' command sent.")
                     last_response_time = now
                 else:
                     cooldown_left = int(RESPONSE_COOLDOWN - (now - last_response_time))
-                    print(f"⏳ Cooldown active: {cooldown_left} seconds left.")
+                    print(f"⏳ Cooldown active: {cooldown_left} seconds remaining.")
 
 
 # === Run the bot ===
